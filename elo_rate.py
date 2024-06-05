@@ -3,14 +3,14 @@ import pandas as pd
 df = pd.read_csv("premier_league_scores_and_fixtures.csv")
 
 ## -------------------- Elo ratings dictionary by teams ------------------- ##
-## 1 Initialize Elo ratings dictionary
-# 1600 : the mid number between 200~3000
+# Initialize Elo ratings dictionary
+# by 1600 : the mid number between 200~3000
 teams = df['Home'].unique().tolist()
 # print(teams)
 elo_ratings = {team: 1600 for team in set(teams)} 
 
 # adjustinng K
-K = 30  # adjustinng K
+K = 30  
 
 ## -------------------- function: calculate  expected score ------------------- ##
 
