@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 
-## ---------- get the score table --------- ##
+## -------------------- get the score table ------------------- ##
 # 2019-2020
 standings_url = "https://fbref.com/en/comps/9/2019-2020/schedule/2019-2020-Premier-League-Scores-and-Fixtures"
 data5 = requests.get(standings_url)
@@ -40,7 +40,7 @@ shooting = pd.concat([shooting_2023_2024, shooting_2022_2023, shooting_2021_2022
 
 
 
-## ---------- preprocessing --------- ##
+## -------------------- preprocessing ------------------- ##
 ## 1 - Wk : float -> int
 # Replace non-finite values (NA or inf) with a default value, such as 0
 shooting['Wk'].fillna(0, inplace=True)
