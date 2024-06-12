@@ -2,6 +2,12 @@ import requests
 import pandas as pd
 
 ## -------------------- get the score table ------------------- ##
+# 2018-2019
+standings_url = "https://fbref.com/en/comps/9/2018-2019/schedule/2018-2019-Premier-League-Scores-and-Fixtures"
+data6 = requests.get(standings_url)
+shooting_2018_2019 = pd.read_html(data6.text)[0]
+shooting_2018_2019['Season'] = 1819
+
 # 2019-2020
 standings_url = "https://fbref.com/en/comps/9/2019-2020/schedule/2019-2020-Premier-League-Scores-and-Fixtures"
 data5 = requests.get(standings_url)
@@ -26,17 +32,17 @@ data2 = requests.get(standings_url)
 shooting_2022_2023 = pd.read_html(data2.text)[0]
 shooting_2022_2023['Season'] = 2223
 
-## 3) 2023-2024
-standings_url = "https://fbref.com/en/comps/9/schedule/Premier-League-Scores-and-Fixtures"
-data = requests.get(standings_url)
-shooting_2023_2024 = pd.read_html(data.text)[0]
-shooting_2023_2024['Season'] = 2324
+# ## 3) 2023-2024
+# standings_url = "https://fbref.com/en/comps/9/schedule/Premier-League-Scores-and-Fixtures"
+# data = requests.get(standings_url)
+# shooting_2023_2024 = pd.read_html(data.text)[0]
+# shooting_2023_2024['Season'] = 2324
 
 
 
 ## merge all seasons
-# shooting = pd.concat([shooting_2023_2024, shooting_2022_2023], ignore_index=True)
-shooting = pd.concat([shooting_2023_2024, shooting_2022_2023, shooting_2021_2022, shooting_2020_2021,shooting_2019_2020])
+# shooting = pd.concat([shooting_2023_2024, shooting_2022_2023, shooting_2021_2022, shooting_2020_2021,shooting_2019_2020])
+shooting = pd.concat([shooting_2022_2023, shooting_2021_2022, shooting_2020_2021,shooting_2019_2020, shooting_2018_2019])
 
 
 
