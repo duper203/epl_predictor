@@ -82,13 +82,13 @@ for K in K_values:
     errors.append(mean_squared_error)
 
 # Plot
-plt.plot(K_values, errors)
-plt.xlabel('K-factor')
-plt.ylabel('Mean Squared Error')
-plt.title('Mean Squared Error vs K-factor')
-plt.savefig('step2_msq_&_Kfactor.png')
+# plt.plot(K_values, errors)
+# plt.xlabel('K-factor')
+# plt.ylabel('Mean Squared Error')
+# plt.title('Mean Squared Error vs K-factor')
+# plt.savefig('step2_msq_&_Kfactor.png')
 
-plt.show()
+# plt.show()
 
 # Best K-factor
 best_K = K_values[np.argmin(errors)]

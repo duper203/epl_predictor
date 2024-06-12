@@ -94,7 +94,7 @@ plt.colorbar(label='Mean Squared Error')
 plt.xlabel('K-factor')
 plt.ylabel('Home Field Advantage')
 plt.title('Mean Squared Error vs K-factor and Home Field Advantage')
-plt.savefig('mse_vs_k_and_hfa.png')
+plt.savefig('step4_mse_vs_k_and_hfa.png')
 
 plt.show()
 
@@ -105,8 +105,8 @@ plt.show()
 # print(f"The optimal K-factor is: {optimal_K}")
 # print(f"The optimal Home Field Advantage (HFA) is: {optimal_HFA}")
 
-# Apply the optimal K and HFA to update the ratings
-# elo_ratings = initial_elo_ratings.copy()
+# # Apply the optimal K and HFA to update the ratings
+# elo_ratings = elo_ratings.copy()
 # for _, row in df.iterrows():
 #     update_elo_ratings(row['Home'], row['Away'], row['Home_Score'], row['Away_Score'], optimal_K, optimal_HFA, elo_ratings)
 

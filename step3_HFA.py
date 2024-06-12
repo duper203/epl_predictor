@@ -51,7 +51,7 @@ def encode_result(home_score, away_score):
 
 #### -------------------------------------------------------------------------------------------------------------------------------------------- ####
 K = 7.6 #from step2 py file  
-HFA_values = np.arange(45, 101, 1)  # Home Field Advantage values from 0 to 100 in increments of 1
+HFA_values = np.arange(0, 101, 1)  # Home Field Advantage values from 0 to 100 in increments of 1
 errors = []
 
 for HFA in HFA_values:
@@ -94,3 +94,8 @@ plt.show()
 best_HFA = HFA_values[np.argmin(errors)]
 print(f"The best Home Field Advantage (HFA) is: {best_HFA}") 
 # result:  2
+
+for index, row in df.iterrows():
+    update_elo_ratings(row['Home'], row['Away'], row['Home_Score'], row['Away_Score'], best_K)
+
+print(elo_ratings)
