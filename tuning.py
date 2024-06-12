@@ -12,7 +12,7 @@ teams = df['Home'].unique().tolist()
 elo_ratings = {team: 1600 for team in set(teams)} 
 
 # adjustinng K
-K = 30  
+# K = 30  
 
 ## -------------------- function: calculate  expected score ------------------- ##
 
@@ -21,7 +21,7 @@ def expected_score(rating1, rating2):
 
 ## -------------------- function: update Elo ratings ------------------- ##
 
-def update_elo_ratings(home_team, away_team, home_goals, away_goals):
+def update_elo_ratings(home_team, away_team, home_goals, away_goals, K):
     home_rating = elo_ratings[home_team]
     away_rating = elo_ratings[away_team]
     
@@ -82,15 +82,20 @@ for K in K_values:
     errors.append(mean_squared_error)
 
 # Plotting the results
-plt.plot(K_values, errors)
-plt.xlabel('K-factor')
-plt.ylabel('Mean Squared Error')
-plt.title('Mean Squared Error vs K-factor')
-plt.show()
+# plt.plot(K_values, errors)
+# plt.xlabel('K-factor')
+# plt.ylabel('Mean Squared Error')
+# plt.title('Mean Squared Error vs K-factor')
+# plt.show()
 
 # Best K-factor
 best_K = K_values[np.argmin(errors)]
-print(f"The best K-factor is: {best_K}")
+print(f"The best K-factor is: {best_K}") # 7.599999999999998
+
+for index, row in df.iterrows():
+    update_elo_ratings(row['Home'], row['Away'], row['Home_Score'], row['Away_Score'], best_K)
+
+print(elo_ratings)
 
 
 
