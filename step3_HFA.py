@@ -80,12 +80,12 @@ for HFA in HFA_values:
     errors.append(mean_squared_error)
 
 # Plotting the results
-# plt.plot(HFA_values, errors)
-# plt.xlabel('Home Field Advantage (HFA)')
-# plt.ylabel('Mean Squared Error')
-# plt.title('Mean Squared Error vs Home Field Advantage (HFA)')
-# plt.savefig('step3_msq_&_hfa.png')
-# plt.show()
+plt.plot(HFA_values, errors)
+plt.xlabel('Home Field Advantage (HFA)')
+plt.ylabel('Mean Squared Error')
+plt.title('Mean Squared Error vs Home Field Advantage (HFA)')
+plt.savefig('step3_msq_&_hfa.png')
+plt.show()
 
 # Best HFA
 best_HFA = HFA_values[np.argmin(errors)]
