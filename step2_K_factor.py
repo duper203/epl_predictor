@@ -81,12 +81,14 @@ for K in K_values:
     mean_squared_error = np.mean(squared_errors)
     errors.append(mean_squared_error)
 
-# Plotting the results
-# plt.plot(K_values, errors)
-# plt.xlabel('K-factor')
-# plt.ylabel('Mean Squared Error')
-# plt.title('Mean Squared Error vs K-factor')
-# plt.show()
+# Plot
+plt.plot(K_values, errors)
+plt.xlabel('K-factor')
+plt.ylabel('Mean Squared Error')
+plt.title('Mean Squared Error vs K-factor')
+plt.savefig('step2_msq_&_Kfactor.png')
+
+plt.show()
 
 # Best K-factor
 best_K = K_values[np.argmin(errors)]
@@ -96,13 +98,3 @@ for index, row in df.iterrows():
     update_elo_ratings(row['Home'], row['Away'], row['Home_Score'], row['Away_Score'], best_K)
 
 print(elo_ratings)
-
-
-
-## -------------------- main ------------------- ##
-
-# for index, row in df.iterrows():
-#     update_elo_ratings(row['Home'], row['Away'], row['Home_Score'], row['Away_Score'])
-
-
-# print(elo_ratings)
