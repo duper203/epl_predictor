@@ -80,15 +80,12 @@ for HFA in HFA_values:
     errors.append(mean_squared_error)
 
 # Plotting the results
-plt.plot(HFA_values, errors)
-plt.xlabel('Home Field Advantage (HFA)')
-plt.ylabel('Mean Squared Error')
-plt.title('Mean Squared Error vs Home Field Advantage (HFA)')
-
-plt.savefig('step3_msq_&_hfa.png')
-
-# Display the plot
-plt.show()
+# plt.plot(HFA_values, errors)
+# plt.xlabel('Home Field Advantage (HFA)')
+# plt.ylabel('Mean Squared Error')
+# plt.title('Mean Squared Error vs Home Field Advantage (HFA)')
+# plt.savefig('step3_msq_&_hfa.png')
+# plt.show()
 
 # Best HFA
 best_HFA = HFA_values[np.argmin(errors)]
@@ -96,6 +93,6 @@ print(f"The best Home Field Advantage (HFA) is: {best_HFA}")
 # result:  2
 
 for index, row in df.iterrows():
-    update_elo_ratings(row['Home'], row['Away'], row['Home_Score'], row['Away_Score'], best_K)
+    update_elo_ratings(row['Home'], row['Away'], row['Home_Score'], row['Away_Score'], K, best_HFA)
 
 print(elo_ratings)
