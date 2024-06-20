@@ -53,7 +53,8 @@ def encode_result(home_score, away_score):
         return 0.5, 0.5
     
 # Test different K values
-K_values = np.arange(7, 25.1, 0.1)
+# K_values = np.arange(7, 25.1, 0.1)
+K_values = np.arange(15, 35.5, 0.5)
 errors = []
 
 for K in K_values:
@@ -93,6 +94,7 @@ plt.show()
 best_K = K_values[np.argmin(errors)]
 print(f"The best K-factor is: {best_K}") # 7.599999999999998
 
+ratings = elo_ratings.copy()
 for index, row in df.iterrows():
     update_elo_ratings(row['Home'], row['Away'], row['Home_Score'], row['Away_Score'], best_K)
 
