@@ -92,7 +92,7 @@ plt.show()
 # Best HFA
 best_HFA = HFA_values[np.argmin(errors)]
 print(f"The best Home Field Advantage (HFA) is: {best_HFA}") 
-# result:  2
+# result:  47
 
 ratings = elo_ratings.copy()
 for index, row in df.iterrows():

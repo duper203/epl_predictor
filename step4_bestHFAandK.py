@@ -9,7 +9,7 @@ df = pd.read_csv("premier_league_scores_and_fixtures.csv")
 # by 1600 : the mid number between 200~3000
 teams = df['Home'].unique().tolist()
 # print(teams)
-elo_ratings = {team: 1500 for team in set(teams)} 
+elo_ratings = {team: 1600 for team in set(teams)} 
 
 
 ## -------------------- function: calculate  expected score ------------------- ##
@@ -19,8 +19,8 @@ def expected_score(rating1, rating2):
 
 ## -------------------- function: update Elo ratings ------------------- ##
 
-def update_elo_ratings(home_team, away_team, home_goals, away_goals, K, HFA, elo_ratings):
-    home_rating = elo_ratings[home_team]+HFA
+def update_elo_ratings(home_team, away_team, home_goals, away_goals, K, HFA):
+    home_rating = elo_ratings[home_team] + HFA
     away_rating = elo_ratings[away_team]
     
     expected_home = expected_score(home_rating, away_rating)
@@ -33,14 +33,13 @@ def update_elo_ratings(home_team, away_team, home_goals, away_goals, K, HFA, elo
     else:
         actual_home, actual_away = 0.5, 0.5
     
-    # Elo system Formula
-    new_home_rating = home_rating + K * (actual_home - expected_home)
-    new_away_rating = away_rating + K * (actual_away - expected_away)
+    new_home_rating = elo_ratings[home_team] + K * (actual_home - expected_home)
+    new_away_rating = elo_ratings[away_team] + K * (actual_away - expected_away)
     
     elo_ratings[home_team] = new_home_rating
     elo_ratings[away_team] = new_away_rating
 
-#function to encode match
+# Function to encode match result
 def encode_result(home_score, away_score):
     if home_score > away_score:
         return 1, 0
@@ -48,21 +47,15 @@ def encode_result(home_score, away_score):
         return 0, 1
     else:
         return 0.5, 0.5
-    
+
 #### -------------------------------------------------------------------------------------------------------------------------------------------- ####
+K_values = np.arange(15, 35.5, 0.5)
+HFA_values = np.arange(0, 101, 1)
+errors = np.zeros((len(K_values), len(HFA_values)))
 
-# K_values = np.arange(7, 25.1, 0.1)
-# HFA_values = np.arange(45, 101, 1)
-K_values = np.arange(7, 26, 0.5)
-HFA_values = np.arange(0, 101, 5)
-
-# Initialize error matrix
-error_matrix = np.zeros((len(K_values), len(HFA_values)))
-
-# Perform grid search
 for i, K in enumerate(K_values):
     for j, HFA in enumerate(HFA_values):
-        elo_ratings = elo_ratings.copy()
+        ratings = elo_ratings.copy()
         squared_errors = []
 
         for _, row in df.iterrows():
@@ -73,41 +66,39 @@ for i, K in enumerate(K_values):
 
             home_result, away_result = encode_result(home_score, away_score)
 
-            home_rating = elo_ratings[home_team] + HFA
-            away_rating = elo_ratings[away_team]
+            home_rating = ratings[home_team] + HFA
+            away_rating = ratings[away_team]
 
             expected_home = expected_score(home_rating, away_rating)
             expected_away = expected_score(away_rating, home_rating)
 
-            update_elo_ratings(home_team, away_team, home_score, away_score, K, HFA, elo_ratings)
+            update_elo_ratings(home_team, away_team, home_score, away_score, K, HFA)
 
             squared_errors.append((expected_home - home_result)**2 + (expected_away - away_result)**2)
 
         mean_squared_error = np.mean(squared_errors)
-        error_matrix[i, j] = mean_squared_error
+        errors[i, j] = mean_squared_error
 
-print("plot")
-# plot
-K_grid, HFA_grid = np.meshgrid(K_values, HFA_values)
-plt.contourf(K_grid, HFA_grid, error_matrix.T, 20, cmap='viridis')
+# Plotting the results
+K_values_grid, HFA_values_grid = np.meshgrid(K_values, HFA_values)
+plt.contourf(K_values_grid, HFA_values_grid, errors.T, levels=50, cmap='viridis')
 plt.colorbar(label='Mean Squared Error')
 plt.xlabel('K-factor')
-plt.ylabel('Home Field Advantage')
-plt.title('Mean Squared Error vs K-factor and Home Field Advantage')
-plt.savefig('step4_mse_vs_k_and_hfa.png')
-
+plt.ylabel('Home Field Advantage (HFA)')
+plt.title('Mean Squared Error vs K-factor and Home Field Advantage (HFA)')
+plt.savefig('step4_msq_&_contour.png')
 plt.show()
 
-# Find the optimal K and HFA
-# optimal_indices = np.unravel_index(np.argmin(error_matrix), error_matrix.shape)
-# optimal_K = K_values[optimal_indices[0]]
-# optimal_HFA = HFA_values[optimal_indices[1]]
-# print(f"The optimal K-factor is: {optimal_K}")
-# print(f"The optimal Home Field Advantage (HFA) is: {optimal_HFA}")
+# Best K and HFA
+best_index = np.unravel_index(np.argmin(errors), errors.shape)
+best_K = K_values[best_index[0]]
+best_HFA = HFA_values[best_index[1]]
+print(f"The best K-factor is: {best_K}")
+print(f"The best Home Field Advantage (HFA) is: {best_HFA}")
 
-# # Apply the optimal K and HFA to update the ratings
-# elo_ratings = elo_ratings.copy()
-# for _, row in df.iterrows():
-#     update_elo_ratings(row['Home'], row['Away'], row['Home_Score'], row['Away_Score'], optimal_K, optimal_HFA, elo_ratings)
+# Update elo ratings with best K and HFA
+ratings = elo_ratings.copy()
+for index, row in df.iterrows():
+    update_elo_ratings(row['Home'], row['Away'], row['Home_Score'], row['Away_Score'], best_K, best_HFA)
 
-# print(elo_ratings)
+print(elo_ratings)
