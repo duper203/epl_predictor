@@ -5,8 +5,17 @@ teams = df['Home'].unique().tolist()
 elo_ratings = {team: 1600 for team in set(teams)} 
 
 # Elo rating parameters
-K = 16
-HFA = 47
+# K = 15
+# HFA = 47
+
+# K = 1
+# HFA = 64
+
+# K = 5.5
+# HFA = 45
+
+K = 7.6
+HFA = 45
 
 def update_elo(home_team, away_team, home_goals, away_goals, elo_ratings, K, HFA):
     home_elo = elo_ratings[home_team] + HFA
@@ -50,17 +59,21 @@ def simulate_season(df, initial_elo, K, HFA, num_simulations=10000):
     
     return results
 
-# Run the simulation
+
+
+
+
+
 simulation_results = simulate_season(df, elo_ratings, K, HFA, num_simulations=10000)
 
-# Convert the results to a DataFrame for analysis
+
+
 df_simulation_results = pd.DataFrame(simulation_results)
+# simulation_results_csv_path = 'simulation_results.csv'
+# df_simulation_results.to_csv(simulation_results_csv_path, index=False)
+# the average Elo rating for each team
+average_elo_ratings = df_simulation_results.mean().sort_values(ascending=False)
 
-# # Display the simulation results
-# import ace_tools as tools; 
-# tools.display_dataframe_to_user(name="Simulation Results", dataframe=df_simulation_results)
-
-# df_simulation_results.describe()
-
-
-
+# descending order
+for team, rating in average_elo_ratings.items():
+    print(f"{team}: {rating:.2f}")
