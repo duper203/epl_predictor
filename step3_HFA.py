@@ -52,7 +52,7 @@ def encode_result(home_score, away_score):
         return 0.5, 0.5
 
 #### -------------------------------------------------------------------------------------------------------------------------------------------- ####
-K = 16 #from step2 py file  
+K = 7.6 #from step2 py file  
 HFA_values = np.arange(0, 101, 1)  # Home Field Advantage values from 0 to 100 in increments of 1
 errors = []
 

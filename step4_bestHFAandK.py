@@ -2,22 +2,16 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Load data
 df = pd.read_csv("premier_league_scores_and_fixtures.csv")
 
-## -------------------- Elo ratings dictionary by teams ------------------- ##
-# Initialize Elo ratings dictionary
-# by 1600 : the mid number between 200~3000
+# Initialize Elo ratings
 teams = df['Home'].unique().tolist()
-# print(teams)
-elo_ratings = {team: 1600 for team in set(teams)} 
+elo_ratings = {team: 1600 for team in set(teams)}
 
-
-## -------------------- function: calculate  expected score ------------------- ##
-
+# Functions
 def expected_score(rating1, rating2):
     return 1 / (1 + 10**((rating2 - rating1) / 400))
-
-## -------------------- function: update Elo ratings ------------------- ##
 
 def update_elo_ratings(home_team, away_team, home_goals, away_goals, K, HFA):
     home_rating = elo_ratings[home_team] + HFA
@@ -39,7 +33,6 @@ def update_elo_ratings(home_team, away_team, home_goals, away_goals, K, HFA):
     elo_ratings[home_team] = new_home_rating
     elo_ratings[away_team] = new_away_rating
 
-# Function to encode match result
 def encode_result(home_score, away_score):
     if home_score > away_score:
         return 1, 0
@@ -48,7 +41,7 @@ def encode_result(home_score, away_score):
     else:
         return 0.5, 0.5
 
-#### -------------------------------------------------------------------------------------------------------------------------------------------- ####
+# Grid search for K and HFA
 K_values = np.arange(15, 35.5, 0.5)
 HFA_values = np.arange(0, 101, 1)
 errors = np.zeros((len(K_values), len(HFA_values)))
@@ -96,9 +89,15 @@ best_HFA = HFA_values[best_index[1]]
 print(f"The best K-factor is: {best_K}")
 print(f"The best Home Field Advantage (HFA) is: {best_HFA}")
 
-# Update elo ratings with best K and HFA
-ratings = elo_ratings.copy()
-for index, row in df.iterrows():
-    update_elo_ratings(row['Home'], row['Away'], row['Home_Score'], row['Away_Score'], best_K, best_HFA)
+##### RESULT ######
+# The best K-factor is: 15.0
+# The best Home Field Advantage (HFA) is: 47
 
-print(elo_ratings)
+
+
+# # Update elo ratings with best K and HFA
+# elo_ratings = {team: 1600 for team in set(teams)}
+# for index, row in df.iterrows():
+#     update_elo_ratings(row['Home'], row['Away'], row['Home_Score'], row['Away_Score'], best_K, best_HFA)
+
+# print(elo_ratings)

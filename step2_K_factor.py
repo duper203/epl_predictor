@@ -8,7 +8,6 @@ df = pd.read_csv("premier_league_scores_and_fixtures.csv")
 # Initialize Elo ratings dictionary
 # by 1600 : the mid number between 200~3000
 teams = df['Home'].unique().tolist()
-# print(teams)
 elo_ratings = {team: 1600 for team in set(teams)} 
 
 # adjustinng K
@@ -54,7 +53,9 @@ def encode_result(home_score, away_score):
     
 # Test different K values
 # K_values = np.arange(7, 25.1, 0.1)
-K_values = np.arange(15, 35.5, 0.5)
+# K_values = np.arange(0, 35.5, 0.5)
+K_values = np.arange(7, 35.5, 0.1)
+
 errors = []
 
 for K in K_values:
