@@ -92,7 +92,7 @@ plt.show()
 
 # Best K-factor
 best_K = K_values[np.argmin(errors)]
-print(f"The best K-factor is: {best_K}") # 7.599999999999998
+print(f"The best K-factor is: {best_K}") # 16
 
 ratings = elo_ratings.copy()
 for index, row in df.iterrows():

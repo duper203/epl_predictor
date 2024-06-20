@@ -34,7 +34,9 @@ def update_elo_ratings(home_team, away_team, home_goals, away_goals, K, HFA):
         actual_home, actual_away = 0.5, 0.5
     
     # Elo system Formula
-    new_home_rating = home_rating + K * (actual_home - expected_home)
+    # [wrong formula] new_home_rating = home_rating + K * (actual_home - expected_home)
+
+    new_home_rating = elo_ratings[home_team] + K * (actual_home - expected_home)
     new_away_rating = away_rating + K * (actual_away - expected_away)
     
     elo_ratings[home_team] = new_home_rating
@@ -50,7 +52,7 @@ def encode_result(home_score, away_score):
         return 0.5, 0.5
 
 #### -------------------------------------------------------------------------------------------------------------------------------------------- ####
-K = 7.6 #from step2 py file  
+K = 16 #from step2 py file  
 HFA_values = np.arange(0, 101, 1)  # Home Field Advantage values from 0 to 100 in increments of 1
 errors = []
 
@@ -92,6 +94,7 @@ best_HFA = HFA_values[np.argmin(errors)]
 print(f"The best Home Field Advantage (HFA) is: {best_HFA}") 
 # result:  2
 
+ratings = elo_ratings.copy()
 for index, row in df.iterrows():
     update_elo_ratings(row['Home'], row['Away'], row['Home_Score'], row['Away_Score'], K, best_HFA)
 
