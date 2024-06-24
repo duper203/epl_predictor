@@ -13,7 +13,7 @@ elo_ratings = {team: 1600 for team in set(teams)}
 def expected_score(rating1, rating2):
     return 1 / (1 + 10**((rating2 - rating1) / 400))
 
-def update_elo_ratings(home_team, away_team, home_goals, away_goals, K, HFA):
+def update_elo_ratings(home_team, away_team, home_goals, away_goals, K, HFA, elo_ratings):
     home_rating = elo_ratings[home_team] + HFA
     away_rating = elo_ratings[away_team]
     
@@ -42,8 +42,8 @@ def encode_result(home_score, away_score):
         return 0.5, 0.5
 
 # Grid search for K and HFA
-K_values = np.arange(15, 35.5, 0.5)
-HFA_values = np.arange(0, 101, 1)
+K_values = np.arange(7, 35.5, 0.5)
+HFA_values = np.arange(20, 70, 1)
 errors = np.zeros((len(K_values), len(HFA_values)))
 
 for i, K in enumerate(K_values):
@@ -65,7 +65,7 @@ for i, K in enumerate(K_values):
             expected_home = expected_score(home_rating, away_rating)
             expected_away = expected_score(away_rating, home_rating)
 
-            update_elo_ratings(home_team, away_team, home_score, away_score, K, HFA)
+            update_elo_ratings(home_team, away_team, home_score, away_score, K, HFA, ratings)
 
             squared_errors.append((expected_home - home_result)**2 + (expected_away - away_result)**2)
 
