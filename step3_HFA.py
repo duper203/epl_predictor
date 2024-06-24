@@ -19,7 +19,7 @@ def expected_score(rating1, rating2):
 
 ## -------------------- function: update Elo ratings ------------------- ##
 
-def update_elo_ratings(home_team, away_team, home_goals, away_goals, K, HFA):
+def update_elo_ratings(home_team, away_team, home_goals, away_goals, K, HFA, elo_ratings):
     home_rating = elo_ratings[home_team]+HFA
     away_rating = elo_ratings[away_team]
     
@@ -52,8 +52,8 @@ def encode_result(home_score, away_score):
         return 0.5, 0.5
 
 #### -------------------------------------------------------------------------------------------------------------------------------------------- ####
-K = 7.6 #from step2 py file  
-HFA_values = np.arange(0, 101, 1)  # Home Field Advantage values from 0 to 100 in increments of 1
+K = 28.5 #from step2 py file  
+HFA_values = np.arange(20, 70, 1)  # Home Field Advantage values from 0 to 100 in increments of 1
 errors = []
 
 for HFA in HFA_values:
@@ -74,7 +74,7 @@ for HFA in HFA_values:
         expected_home = expected_score(home_rating, away_rating)
         expected_away = expected_score(away_rating, home_rating)
 
-        update_elo_ratings(home_team, away_team, home_score, away_score, K, HFA)
+        update_elo_ratings(home_team, away_team, home_score, away_score, K, HFA, ratings)
 
         squared_errors.append((expected_home - home_result)**2 + (expected_away - away_result)**2)
 
@@ -96,6 +96,6 @@ print(f"The best Home Field Advantage (HFA) is: {best_HFA}")
 
 ratings = elo_ratings.copy()
 for index, row in df.iterrows():
-    update_elo_ratings(row['Home'], row['Away'], row['Home_Score'], row['Away_Score'], K, best_HFA)
+    update_elo_ratings(row['Home'], row['Away'], row['Home_Score'], row['Away_Score'], K, best_HFA, ratings)
 
-print(elo_ratings)
+print(ratings)

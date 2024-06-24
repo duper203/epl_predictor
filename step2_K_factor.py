@@ -20,7 +20,7 @@ def expected_score(rating1, rating2):
 
 ## -------------------- function: update Elo ratings ------------------- ##
 
-def update_elo_ratings(home_team, away_team, home_goals, away_goals, K):
+def update_elo_ratings(home_team, away_team, home_goals, away_goals, K, elo_ratings):
     home_rating = elo_ratings[home_team]
     away_rating = elo_ratings[away_team]
     
@@ -54,7 +54,7 @@ def encode_result(home_score, away_score):
 # Test different K values
 # K_values = np.arange(7, 25.1, 0.1)
 # K_values = np.arange(0, 35.5, 0.5)
-K_values = np.arange(7, 35.5, 0.1)
+K_values = np.arange(7, 35.5, 0.5)
 
 errors = []
 
@@ -76,7 +76,7 @@ for K in K_values:
         expected_home = expected_score(home_rating, away_rating)
         expected_away = expected_score(away_rating, home_rating)
 
-        update_elo_ratings(home_team, away_team, home_score, away_score, K)
+        update_elo_ratings(home_team, away_team, home_score, away_score, K, ratings)
 
         squared_errors.append((expected_home - home_result)**2 + (expected_away - away_result)**2)
 
@@ -97,6 +97,6 @@ print(f"The best K-factor is: {best_K}") # 16
 
 ratings = elo_ratings.copy()
 for index, row in df.iterrows():
-    update_elo_ratings(row['Home'], row['Away'], row['Home_Score'], row['Away_Score'], best_K)
+    update_elo_ratings(row['Home'], row['Away'], row['Home_Score'], row['Away_Score'], best_K, ratings)
 
-print(elo_ratings)
+print(ratings)
