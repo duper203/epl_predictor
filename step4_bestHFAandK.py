@@ -88,16 +88,3 @@ best_K = K_values[best_index[0]]
 best_HFA = HFA_values[best_index[1]]
 print(f"The best K-factor is: {best_K}")
 print(f"The best Home Field Advantage (HFA) is: {best_HFA}")
-
-##### RESULT ######
-# The best K-factor is: 15.0
-# The best Home Field Advantage (HFA) is: 47
-
-
-
-# # Update elo ratings with best K and HFA
-# elo_ratings = {team: 1600 for team in set(teams)}
-# for index, row in df.iterrows():
-#     update_elo_ratings(row['Home'], row['Away'], row['Home_Score'], row['Away_Score'], best_K, best_HFA)
-
-# print(elo_ratings)
