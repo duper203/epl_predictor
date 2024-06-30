@@ -1,0 +1,561 @@
+,ranking,probability,teams
+0,1,0.004,Fulham
+1,2,0.008,Fulham
+2,3,0.018,Fulham
+3,4,0.027,Fulham
+4,5,0.035,Fulham
+5,6,0.048,Fulham
+6,7,0.038,Fulham
+7,8,0.059,Fulham
+8,9,0.058,Fulham
+9,10,0.072,Fulham
+10,11,0.083,Fulham
+11,12,0.08,Fulham
+12,13,0.084,Fulham
+13,14,0.071,Fulham
+14,15,0.072,Fulham
+15,16,0.082,Fulham
+16,17,0.053,Fulham
+17,18,0.046,Fulham
+18,19,0.043,Fulham
+19,20,0.019,Fulham
+20,1,0.0,Nott'ham Forest
+21,2,0.008,Nott'ham Forest
+22,3,0.01,Nott'ham Forest
+23,4,0.027,Nott'ham Forest
+24,5,0.025,Nott'ham Forest
+25,6,0.033,Nott'ham Forest
+26,7,0.038,Nott'ham Forest
+27,8,0.047,Nott'ham Forest
+28,9,0.051,Nott'ham Forest
+29,10,0.064,Nott'ham Forest
+30,11,0.067,Nott'ham Forest
+31,12,0.077,Nott'ham Forest
+32,13,0.082,Nott'ham Forest
+33,14,0.078,Nott'ham Forest
+34,15,0.082,Nott'ham Forest
+35,16,0.071,Nott'ham Forest
+36,17,0.08,Nott'ham Forest
+37,18,0.076,Nott'ham Forest
+38,19,0.057,Nott'ham Forest
+39,20,0.027,Nott'ham Forest
+40,1,0.0,Bournemouth
+41,2,0.004,Bournemouth
+42,3,0.001,Bournemouth
+43,4,0.007,Bournemouth
+44,5,0.004,Bournemouth
+45,6,0.015,Bournemouth
+46,7,0.016,Bournemouth
+47,8,0.026,Bournemouth
+48,9,0.041,Bournemouth
+49,10,0.035,Bournemouth
+50,11,0.055,Bournemouth
+51,12,0.06,Bournemouth
+52,13,0.072,Bournemouth
+53,14,0.085,Bournemouth
+54,15,0.093,Bournemouth
+55,16,0.1,Bournemouth
+56,17,0.086,Bournemouth
+57,18,0.127,Bournemouth
+58,19,0.097,Bournemouth
+59,20,0.076,Bournemouth
+60,1,0.003,Everton
+61,2,0.007,Everton
+62,3,0.007,Everton
+63,4,0.008,Everton
+64,5,0.02,Everton
+65,6,0.035,Everton
+66,7,0.033,Everton
+67,8,0.032,Everton
+68,9,0.051,Everton
+69,10,0.062,Everton
+70,11,0.066,Everton
+71,12,0.076,Everton
+72,13,0.072,Everton
+73,14,0.099,Everton
+74,15,0.081,Everton
+75,16,0.087,Everton
+76,17,0.083,Everton
+77,18,0.059,Everton
+78,19,0.076,Everton
+79,20,0.043,Everton
+80,1,0.0,Leeds United
+81,2,0.0,Leeds United
+82,3,0.0,Leeds United
+83,4,0.0,Leeds United
+84,5,0.0,Leeds United
+85,6,0.0,Leeds United
+86,7,0.0,Leeds United
+87,8,0.0,Leeds United
+88,9,0.0,Leeds United
+89,10,0.0,Leeds United
+90,11,0.0,Leeds United
+91,12,0.0,Leeds United
+92,13,0.0,Leeds United
+93,14,0.0,Leeds United
+94,15,0.0,Leeds United
+95,16,0.0,Leeds United
+96,17,0.0,Leeds United
+97,18,0.0,Leeds United
+98,19,0.0,Leeds United
+99,20,0.001,Leeds United
+100,1,0.0,West Ham
+101,2,0.008,West Ham
+102,3,0.011,West Ham
+103,4,0.011,West Ham
+104,5,0.031,West Ham
+105,6,0.03,West Ham
+106,7,0.056,West Ham
+107,8,0.037,West Ham
+108,9,0.061,West Ham
+109,10,0.065,West Ham
+110,11,0.061,West Ham
+111,12,0.069,West Ham
+112,13,0.076,West Ham
+113,14,0.089,West Ham
+114,15,0.079,West Ham
+115,16,0.078,West Ham
+116,17,0.08,West Ham
+117,18,0.076,West Ham
+118,19,0.053,West Ham
+119,20,0.029,West Ham
+120,1,0.0,Huddersfield
+121,2,0.0,Huddersfield
+122,3,0.0,Huddersfield
+123,4,0.0,Huddersfield
+124,5,0.0,Huddersfield
+125,6,0.0,Huddersfield
+126,7,0.0,Huddersfield
+127,8,0.0,Huddersfield
+128,9,0.0,Huddersfield
+129,10,0.0,Huddersfield
+130,11,0.0,Huddersfield
+131,12,0.0,Huddersfield
+132,13,0.0,Huddersfield
+133,14,0.0,Huddersfield
+134,15,0.0,Huddersfield
+135,16,0.0,Huddersfield
+136,17,0.0,Huddersfield
+137,18,0.0,Huddersfield
+138,19,0.0,Huddersfield
+139,20,0.0,Huddersfield
+140,1,0.029,Aston Villa
+141,2,0.068,Aston Villa
+142,3,0.085,Aston Villa
+143,4,0.086,Aston Villa
+144,5,0.099,Aston Villa
+145,6,0.108,Aston Villa
+146,7,0.083,Aston Villa
+147,8,0.078,Aston Villa
+148,9,0.075,Aston Villa
+149,10,0.062,Aston Villa
+150,11,0.043,Aston Villa
+151,12,0.043,Aston Villa
+152,13,0.043,Aston Villa
+153,14,0.023,Aston Villa
+154,15,0.027,Aston Villa
+155,16,0.024,Aston Villa
+156,17,0.012,Aston Villa
+157,18,0.008,Aston Villa
+158,19,0.004,Aston Villa
+159,20,0.0,Aston Villa
+160,1,0.0,Burnley
+161,2,0.003,Burnley
+162,3,0.001,Burnley
+163,4,0.013,Burnley
+164,5,0.016,Burnley
+165,6,0.019,Burnley
+166,7,0.03,Burnley
+167,8,0.024,Burnley
+168,9,0.034,Burnley
+169,10,0.045,Burnley
+170,11,0.052,Burnley
+171,12,0.058,Burnley
+172,13,0.073,Burnley
+173,14,0.09,Burnley
+174,15,0.071,Burnley
+175,16,0.089,Burnley
+176,17,0.12,Burnley
+177,18,0.101,Burnley
+178,19,0.088,Burnley
+179,20,0.073,Burnley
+180,1,0.0,Sheffield Utd
+181,2,0.001,Sheffield Utd
+182,3,0.002,Sheffield Utd
+183,4,0.002,Sheffield Utd
+184,5,0.002,Sheffield Utd
+185,6,0.005,Sheffield Utd
+186,7,0.003,Sheffield Utd
+187,8,0.011,Sheffield Utd
+188,9,0.018,Sheffield Utd
+189,10,0.017,Sheffield Utd
+190,11,0.029,Sheffield Utd
+191,12,0.037,Sheffield Utd
+192,13,0.037,Sheffield Utd
+193,14,0.043,Sheffield Utd
+194,15,0.072,Sheffield Utd
+195,16,0.087,Sheffield Utd
+196,17,0.111,Sheffield Utd
+197,18,0.141,Sheffield Utd
+198,19,0.204,Sheffield Utd
+199,20,0.178,Sheffield Utd
+200,1,0.0,Cardiff City
+201,2,0.0,Cardiff City
+202,3,0.0,Cardiff City
+203,4,0.0,Cardiff City
+204,5,0.0,Cardiff City
+205,6,0.0,Cardiff City
+206,7,0.0,Cardiff City
+207,8,0.0,Cardiff City
+208,9,0.0,Cardiff City
+209,10,0.0,Cardiff City
+210,11,0.0,Cardiff City
+211,12,0.0,Cardiff City
+212,13,0.0,Cardiff City
+213,14,0.0,Cardiff City
+214,15,0.0,Cardiff City
+215,16,0.0,Cardiff City
+216,17,0.0,Cardiff City
+217,18,0.0,Cardiff City
+218,19,0.0,Cardiff City
+219,20,0.0,Cardiff City
+220,1,0.097,Manchester Utd
+221,2,0.12,Manchester Utd
+222,3,0.148,Manchester Utd
+223,4,0.109,Manchester Utd
+224,5,0.098,Manchester Utd
+225,6,0.075,Manchester Utd
+226,7,0.1,Manchester Utd
+227,8,0.054,Manchester Utd
+228,9,0.041,Manchester Utd
+229,10,0.031,Manchester Utd
+230,11,0.036,Manchester Utd
+231,12,0.028,Manchester Utd
+232,13,0.015,Manchester Utd
+233,14,0.014,Manchester Utd
+234,15,0.016,Manchester Utd
+235,16,0.007,Manchester Utd
+236,17,0.003,Manchester Utd
+237,18,0.006,Manchester Utd
+238,19,0.001,Manchester Utd
+239,20,0.001,Manchester Utd
+240,1,0.0,Watford
+241,2,0.0,Watford
+242,3,0.0,Watford
+243,4,0.0,Watford
+244,5,0.0,Watford
+245,6,0.0,Watford
+246,7,0.0,Watford
+247,8,0.0,Watford
+248,9,0.0,Watford
+249,10,0.0,Watford
+250,11,0.0,Watford
+251,12,0.0,Watford
+252,13,0.0,Watford
+253,14,0.0,Watford
+254,15,0.0,Watford
+255,16,0.0,Watford
+256,17,0.0,Watford
+257,18,0.0,Watford
+258,19,0.0,Watford
+259,20,0.0,Watford
+260,1,0.078,Newcastle Utd
+261,2,0.102,Newcastle Utd
+262,3,0.118,Newcastle Utd
+263,4,0.121,Newcastle Utd
+264,5,0.094,Newcastle Utd
+265,6,0.091,Newcastle Utd
+266,7,0.08,Newcastle Utd
+267,8,0.073,Newcastle Utd
+268,9,0.05,Newcastle Utd
+269,10,0.039,Newcastle Utd
+270,11,0.042,Newcastle Utd
+271,12,0.023,Newcastle Utd
+272,13,0.027,Newcastle Utd
+273,14,0.019,Newcastle Utd
+274,15,0.016,Newcastle Utd
+275,16,0.008,Newcastle Utd
+276,17,0.006,Newcastle Utd
+277,18,0.009,Newcastle Utd
+278,19,0.002,Newcastle Utd
+279,20,0.002,Newcastle Utd
+280,1,0.0,Leicester City
+281,2,0.0,Leicester City
+282,3,0.0,Leicester City
+283,4,0.0,Leicester City
+284,5,0.0,Leicester City
+285,6,0.0,Leicester City
+286,7,0.0,Leicester City
+287,8,0.0,Leicester City
+288,9,0.0,Leicester City
+289,10,0.0,Leicester City
+290,11,0.0,Leicester City
+291,12,0.0,Leicester City
+292,13,0.0,Leicester City
+293,14,0.0,Leicester City
+294,15,0.0,Leicester City
+295,16,0.0,Leicester City
+296,17,0.0,Leicester City
+297,18,0.0,Leicester City
+298,19,0.0,Leicester City
+299,20,0.0,Leicester City
+300,1,0.163,Liverpool
+301,2,0.176,Liverpool
+302,3,0.143,Liverpool
+303,4,0.139,Liverpool
+304,5,0.092,Liverpool
+305,6,0.087,Liverpool
+306,7,0.043,Liverpool
+307,8,0.045,Liverpool
+308,9,0.03,Liverpool
+309,10,0.026,Liverpool
+310,11,0.02,Liverpool
+311,12,0.011,Liverpool
+312,13,0.007,Liverpool
+313,14,0.008,Liverpool
+314,15,0.006,Liverpool
+315,16,0.002,Liverpool
+316,17,0.001,Liverpool
+317,18,0.0,Liverpool
+318,19,0.001,Liverpool
+319,20,0.0,Liverpool
+320,1,0.026,Brentford
+321,2,0.039,Brentford
+322,3,0.074,Brentford
+323,4,0.07,Brentford
+324,5,0.103,Brentford
+325,6,0.093,Brentford
+326,7,0.102,Brentford
+327,8,0.094,Brentford
+328,9,0.079,Brentford
+329,10,0.061,Brentford
+330,11,0.053,Brentford
+331,12,0.049,Brentford
+332,13,0.036,Brentford
+333,14,0.023,Brentford
+334,15,0.028,Brentford
+335,16,0.027,Brentford
+336,17,0.017,Brentford
+337,18,0.017,Brentford
+338,19,0.007,Brentford
+339,20,0.002,Brentford
+340,1,0.0,Southampton
+341,2,0.0,Southampton
+342,3,0.0,Southampton
+343,4,0.0,Southampton
+344,5,0.0,Southampton
+345,6,0.0,Southampton
+346,7,0.0,Southampton
+347,8,0.0,Southampton
+348,9,0.0,Southampton
+349,10,0.0,Southampton
+350,11,0.0,Southampton
+351,12,0.0,Southampton
+352,13,0.0,Southampton
+353,14,0.0,Southampton
+354,15,0.0,Southampton
+355,16,0.0,Southampton
+356,17,0.0,Southampton
+357,18,0.0,Southampton
+358,19,0.0,Southampton
+359,20,0.0,Southampton
+360,1,0.002,Wolves
+361,2,0.006,Wolves
+362,3,0.009,Wolves
+363,4,0.022,Wolves
+364,5,0.022,Wolves
+365,6,0.03,Wolves
+366,7,0.041,Wolves
+367,8,0.049,Wolves
+368,9,0.06,Wolves
+369,10,0.055,Wolves
+370,11,0.066,Wolves
+371,12,0.074,Wolves
+372,13,0.079,Wolves
+373,14,0.073,Wolves
+374,15,0.072,Wolves
+375,16,0.093,Wolves
+376,17,0.099,Wolves
+377,18,0.06,Wolves
+378,19,0.055,Wolves
+379,20,0.033,Wolves
+380,1,0.014,Brighton
+381,2,0.029,Brighton
+382,3,0.054,Brighton
+383,4,0.058,Brighton
+384,5,0.075,Brighton
+385,6,0.077,Brighton
+386,7,0.089,Brighton
+387,8,0.088,Brighton
+388,9,0.095,Brighton
+389,10,0.079,Brighton
+390,11,0.064,Brighton
+391,12,0.068,Brighton
+392,13,0.051,Brighton
+393,14,0.042,Brighton
+394,15,0.04,Brighton
+395,16,0.029,Brighton
+396,17,0.019,Brighton
+397,18,0.015,Brighton
+398,19,0.012,Brighton
+399,20,0.002,Brighton
+400,1,0.013,Tottenham
+401,2,0.031,Tottenham
+402,3,0.038,Tottenham
+403,4,0.062,Tottenham
+404,5,0.062,Tottenham
+405,6,0.089,Tottenham
+406,7,0.07,Tottenham
+407,8,0.096,Tottenham
+408,9,0.076,Tottenham
+409,10,0.081,Tottenham
+410,11,0.085,Tottenham
+411,12,0.055,Tottenham
+412,13,0.059,Tottenham
+413,14,0.046,Tottenham
+414,15,0.048,Tottenham
+415,16,0.032,Tottenham
+416,17,0.026,Tottenham
+417,18,0.012,Tottenham
+418,19,0.015,Tottenham
+419,20,0.004,Tottenham
+420,1,0.137,Arsenal
+421,2,0.14,Arsenal
+422,3,0.116,Arsenal
+423,4,0.119,Arsenal
+424,5,0.109,Arsenal
+425,6,0.077,Arsenal
+426,7,0.074,Arsenal
+427,8,0.062,Arsenal
+428,9,0.045,Arsenal
+429,10,0.038,Arsenal
+430,11,0.022,Arsenal
+431,12,0.018,Arsenal
+432,13,0.015,Arsenal
+433,14,0.008,Arsenal
+434,15,0.01,Arsenal
+435,16,0.002,Arsenal
+436,17,0.006,Arsenal
+437,18,0.001,Arsenal
+438,19,0.001,Arsenal
+439,20,0.0,Arsenal
+440,1,0.0,Norwich City
+441,2,0.0,Norwich City
+442,3,0.0,Norwich City
+443,4,0.0,Norwich City
+444,5,0.0,Norwich City
+445,6,0.0,Norwich City
+446,7,0.0,Norwich City
+447,8,0.0,Norwich City
+448,9,0.0,Norwich City
+449,10,0.0,Norwich City
+450,11,0.0,Norwich City
+451,12,0.0,Norwich City
+452,13,0.0,Norwich City
+453,14,0.0,Norwich City
+454,15,0.0,Norwich City
+455,16,0.0,Norwich City
+456,17,0.0,Norwich City
+457,18,0.0,Norwich City
+458,19,0.0,Norwich City
+459,20,0.0,Norwich City
+460,1,0.002,Crystal Palace
+461,2,0.008,Crystal Palace
+462,3,0.017,Crystal Palace
+463,4,0.031,Crystal Palace
+464,5,0.024,Crystal Palace
+465,6,0.038,Crystal Palace
+466,7,0.046,Crystal Palace
+467,8,0.057,Crystal Palace
+468,9,0.063,Crystal Palace
+469,10,0.08,Crystal Palace
+470,11,0.078,Crystal Palace
+471,12,0.083,Crystal Palace
+472,13,0.082,Crystal Palace
+473,14,0.077,Crystal Palace
+474,15,0.081,Crystal Palace
+475,16,0.067,Crystal Palace
+476,17,0.064,Crystal Palace
+477,18,0.056,Crystal Palace
+478,19,0.031,Crystal Palace
+479,20,0.015,Crystal Palace
+480,1,0.006,Chelsea
+481,2,0.009,Chelsea
+482,3,0.015,Chelsea
+483,4,0.018,Chelsea
+484,5,0.031,Chelsea
+485,6,0.028,Chelsea
+486,7,0.035,Chelsea
+487,8,0.055,Chelsea
+488,9,0.061,Chelsea
+489,10,0.073,Chelsea
+490,11,0.069,Chelsea
+491,12,0.078,Chelsea
+492,13,0.081,Chelsea
+493,14,0.094,Chelsea
+494,15,0.076,Chelsea
+495,16,0.073,Chelsea
+496,17,0.071,Chelsea
+497,18,0.055,Chelsea
+498,19,0.05,Chelsea
+499,20,0.022,Chelsea
+500,1,0.0,West Brom
+501,2,0.0,West Brom
+502,3,0.0,West Brom
+503,4,0.0,West Brom
+504,5,0.0,West Brom
+505,6,0.0,West Brom
+506,7,0.0,West Brom
+507,8,0.0,West Brom
+508,9,0.0,West Brom
+509,10,0.0,West Brom
+510,11,0.0,West Brom
+511,12,0.0,West Brom
+512,13,0.0,West Brom
+513,14,0.0,West Brom
+514,15,0.0,West Brom
+515,16,0.0,West Brom
+516,17,0.0,West Brom
+517,18,0.0,West Brom
+518,19,0.0,West Brom
+519,20,0.0,West Brom
+520,1,0.426,Manchester City
+521,2,0.233,Manchester City
+522,3,0.133,Manchester City
+523,4,0.07,Manchester City
+524,5,0.058,Manchester City
+525,6,0.021,Manchester City
+526,7,0.023,Manchester City
+527,8,0.012,Manchester City
+528,9,0.008,Manchester City
+529,10,0.008,Manchester City
+530,11,0.002,Manchester City
+531,12,0.003,Manchester City
+532,13,0.002,Manchester City
+533,14,0.0,Manchester City
+534,15,0.001,Manchester City
+535,16,0.0,Manchester City
+536,17,0.0,Manchester City
+537,18,0.0,Manchester City
+538,19,0.0,Manchester City
+539,20,0.0,Manchester City
+540,1,0.0,Luton Town
+541,2,0.0,Luton Town
+542,3,0.0,Luton Town
+543,4,0.0,Luton Town
+544,5,0.0,Luton Town
+545,6,0.001,Luton Town
+546,7,0.0,Luton Town
+547,8,0.001,Luton Town
+548,9,0.003,Luton Town
+549,10,0.007,Luton Town
+550,11,0.007,Luton Town
+551,12,0.01,Luton Town
+552,13,0.007,Luton Town
+553,14,0.018,Luton Town
+554,15,0.029,Luton Town
+555,16,0.042,Luton Town
+556,17,0.063,Luton Town
+557,18,0.135,Luton Town
+558,19,0.203,Luton Town
+559,20,0.473,Luton Town
