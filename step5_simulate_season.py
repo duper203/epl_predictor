@@ -63,10 +63,9 @@ class Simulation:
 elo_model = EloModel()
 simulation = Simulation(elo_model)
 
-# read data
+#initialize
 df_season2324 = pd.read_csv("EPL_23_24season.csv")
 df_remaining_matches = df_season2324
-
 elo_ratings = {
     'Fulham': 1590.4520733001257, "Nott'ham Forest": 1577.7896459888827, 
     'Bournemouth': 1528.8001104169223, 'Everton': 1568.1129597609636, 
@@ -82,17 +81,23 @@ elo_ratings = {
     'Norwich City': 1411.811545638283, 'Crystal Palace': 1611.7268785716935, 
     'Chelsea': 1603.9447589979388, 'West Brom': 1499.7016773393257, 
     'Manchester City': 1896.9430360385604,
-    'Luton Town': 1500,
+    'Luton Town': 1412.439,
 }
-# Luton Town!!!!  -> was not in the elo rate : need to check
+# Luton Town!!!!  -> was not in the elo rate from step2~4 : need to check!
+# the smallest three
+# Huddersfield: 1398.542018
+# Norwich City: 1411.811546
+# Watford: 1426.964524
+### the mean of the smallest three = 1412.439
+# put this as luton town
 
 
 current_n_points = {team: 0 for team in elo_ratings.keys()}
-
+elo_ratings_init = elo_ratings.copy()
 
 # Simulate the season
-updated_points = simulation.simulated_one_possible_season(current_n_points, df_remaining_matches, elo_ratings)
+updated_points = simulation.simulated_one_possible_season(current_n_points, df_remaining_matches, elo_ratings_init)
 sorted_updated_points = dict(sorted(updated_points.items(), key=lambda item: item[1], reverse=True))
 
 print(sorted_updated_points)
-print(elo_ratings)
+print(elo_ratings_init)
