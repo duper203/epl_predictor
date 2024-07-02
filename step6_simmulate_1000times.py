@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 
-# Elo Model and Simulation Classes
 class EloModel:
     def __init__(self, k=29.5, hfa=43):
         self.k = k
@@ -58,11 +57,9 @@ class Simulation:
 
         return current_n_points
 
-# Initialize model and simulation
 elo_model = EloModel()
 simulation = Simulation(elo_model)
 
-# Load data and initialize ratings
 df_season2324 = pd.read_csv("EPL_23_24season.csv")
 df_remaining_matches = df_season2324
 elo_ratings = {
@@ -83,17 +80,14 @@ elo_ratings = {
     'Luton Town': 1412.439,
 }
 
-# Set up the simulation to run 1000 times
+## ------------- SIMULATE 1000times ------------- ##
 n_simulations = 1000
 
-# Initialize dictionaries to accumulate results
 accumulated_points = {team: 0 for team in elo_ratings.keys()}
 rankings_count = {team: {i: 0 for i in range(1, len(elo_ratings) + 1)} for team in elo_ratings.keys()}
 
-# Initialize a DataFrame to store all simulation results
 all_simulations_results = pd.DataFrame()
 
-# Run the simulation 1000 times
 for i in range(n_simulations):
     current_n_points = {team: 0 for team in elo_ratings.keys()}
     elo_ratings_init = elo_ratings.copy()
@@ -110,36 +104,41 @@ for i in range(n_simulations):
     for rank, (team, points) in enumerate(sorted_teams, start=1):
         rankings_count[team][rank] += 1
     
-    # Add results of this simulation to the DataFrame
     simulation_results = pd.DataFrame(updated_points, index=[i])
     all_simulations_results = pd.concat([all_simulations_results, simulation_results])
 
-# Calculate average points
+## ------------- RESULTS ------------- ##
+
+# 1 # Calculate average points
 average_points = {team: points / n_simulations for team, points in accumulated_points.items()}
 
-# Convert rankings_count to DataFrame for easier analysis
+# 2 # "Rankings_counts" for each team
 rankings_df = pd.DataFrame(rankings_count).T
 rankings_df.index.name = 'Team'
 
 
-# Calculate the probability of each rank for each team
+# 3 # "Probability" of each rank for each team
 rank_probabilities = rankings_df.apply(lambda x: x / n_simulations)
 rank_probabilities.index.name = 'Team'
 
+## ------------- CSV FILES ------------- ##
 
-rankings_df.to_csv('step6_rankings_count.csv')
-all_simulations_results.to_csv('step6_all_simulations_results.csv')
-rank_probabilities.to_csv('rank_probabilities.csv')
+# 0 #
+all_simulations_results.to_csv('./simulation_data _step6/step6_all_simulations_results.csv')
 
-
+# 1 #
 average_points_df = pd.DataFrame.from_dict(average_points, orient='index',columns=['Average Points'])
 average_points_df.index.name = 'Team'
 average_points_df_sorted = average_points_df.sort_values(by='Average Points', ascending=False)
 average_points_df_sorted['Rank'] = range(1, len(average_points_df_sorted) + 1)
 
-average_points_df_sorted.to_csv('step6_average_points.csv')
+average_points_df_sorted.to_csv('./simulation_data _step6/step6_average_points.csv')
 
+# 2 #
+rankings_df.to_csv('./simulation_data _step6/step6_rankings_count.csv')
 
+# 3 #
+rank_probabilities.to_csv('./simulation_data _step6/step6_rank_probabilities.csv')
 
 
 
