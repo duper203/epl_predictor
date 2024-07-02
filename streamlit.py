@@ -35,7 +35,7 @@ st.bar_chart(chart_data, x="ranking", y="probability", color="teams")
 ##---CHART-----------------------------------------------------------------------------------## 
 st.header('Average points after simmulating 1000times')
 
-df_avg_points = pd.read_csv("step6_average_points.csv")
+df_avg_points = pd.read_csv("./simulation_data _step6/step6_average_points.csv")
 st.data_editor(
     df_avg_points, 
     height=1020,
