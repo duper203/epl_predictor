@@ -9,7 +9,7 @@ st.header('This is a header with a divider', divider='rainbow')
 
 st.header('Probabilities of Teams Achieving Each Rankings in the League')
 
-file_path = 'rank_probabilities.csv'
+file_path = './simulation_data _step6/rank_probabilities.csv'
 probabilities_df = pd.read_csv(file_path)
 
 # Extract team names
