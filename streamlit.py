@@ -3,9 +3,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
-from matplotlib.offsetbox import OffsetImage, AnnotationBbox
-from PIL import Image
-import os
 ##---TITLE-----------------------------------------------------------------------------------## 
 st.title("EPL PREDICTOR")
 st.header('', divider='rainbow')
