@@ -3,6 +3,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+##---TITLE-----------------------------------------------------------------------------------## 
+st.title("EPL PREDICTOR")
+st.header('', divider='rainbow')
+
+##---CHART-----------------------------------------------------------------------------------## 
+st.header('Probabilities of Teams Achieving Each Rankings in the League')
+
 prob_file_path = './simulation_data _step6/step6_rank_probabilities.csv'
 probabilities_df = pd.read_csv(prob_file_path)
 
