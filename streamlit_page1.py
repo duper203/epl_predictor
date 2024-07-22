@@ -13,23 +13,18 @@ st.header('', divider='rainbow')
 #---CHART-----------------------------------------------------------------------------------# 
 st.header('EPL Season Simulation Probabilities')
 
-# Load data
 prob_file_path = './simulation_data _step6/step6_rank_probabilities.csv'
 probabilities_df = pd.read_csv(prob_file_path)
 
-# 'Team' == index 
 probabilities_df.set_index('Team', inplace=True)
 probabilities_df = probabilities_df.astype(float)
 df_percentage = probabilities_df * 100
 
-# Sort the DataFrame by the highest probability of achieving the top rank (Rank 1)
 df_sorted_by_rank1 = df_percentage.sort_values(by='1', ascending=False)
 df_sorted_by_rank1 = df_sorted_by_rank1.loc[:, '1':'20']
 
-# Filter out teams with all probabilities equal to 0
 df_non_zero = df_sorted_by_rank1[(df_sorted_by_rank1.T != 0).any()]
 
-# Filter out values less than 5% and set them to NaN
 df_filtered_non_zero = df_non_zero[df_non_zero >= 5].fillna(0)
 
 def annotate_heatmap(ax, data, textcolors=["black", "white"], threshold=None, **textkw):
@@ -58,13 +53,11 @@ def annotate_heatmap(ax, data, textcolors=["black", "white"], threshold=None, **
 
     return texts
 
-# Create the heatmap with filtered data
 plt.figure(figsize=(15, 10))
 ax = sns.heatmap(df_filtered_non_zero, annot=False, fmt='.1f', cmap='Reds', cbar_kws={'label': 'Probability (%)'}, xticklabels=True, yticklabels=True)
 
 annotate_heatmap(ax, df_filtered_non_zero)
 
-# Set labels and title, with x label on the top
 plt.xlabel('Rank Position', labelpad=10)
 plt.ylabel('Team')
 plt.title('Season Simulation Probabilities')
@@ -72,5 +65,4 @@ plt.xticks(rotation=90)
 plt.gca().xaxis.set_label_position('top')
 plt.gca().xaxis.tick_top()
 
-# Show plot in Streamlit
 st.pyplot(plt)
