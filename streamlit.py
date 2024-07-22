@@ -6,7 +6,7 @@ add_page_title("EPL Predictor")
 
 show_pages(
     [
-        Page("streamlit_page1.py", "Home", "🏠"),
-        Page("streamlit_page2.py", "Page 2", ":books:"),
+        Page("streamlit_page1.py", "Simulation Probabilities", "⚽️"),
+        Page("streamlit_page2.py", "Points Prediction", "⚽️"),
     ]
 )

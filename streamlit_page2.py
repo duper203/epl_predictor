@@ -4,9 +4,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 
+st.title("EPL PREDICTOR")
+st.header('', divider='rainbow')
+
 ##---CHART-----------------------------------------------------------------------------------## 
 
-st.header('Prediction for Points')
+st.header('EPL : Points Prediction')
 
 
 all_sim_df = pd.read_csv('./simulation_data _step6/step6_all_simulations_results.csv')
@@ -33,11 +36,14 @@ for team in combined_data['Team']:
         combined_data.loc[combined_data['Team'] == team, 'Win Premier League'] = f"{rank_probabilities.loc[team, '1'] * 100:.1f}%" if rank_probabilities.loc[team, '1'] * 100 >= 1.0 else "<1%"
         combined_data.loc[combined_data['Team'] == team, 'Relegate'] = f"{rank_probabilities.loc[team, '20'] * 100:.1f}%" if rank_probabilities.loc[team, '20'] * 100 >= 1.0 else "<1%"
 
+combined_data['Expected Number of Points'] = pd.to_numeric(combined_data['Expected Number of Points'], errors='coerce').astype(int)
+
 combined_data.drop(columns=['Average Points'], inplace=True)
 
 combined_data.set_index('Team', inplace=True)
 combined_data = combined_data.nlargest(20, 'Expected Number of Points')
 
+# Visualization
 fig, ax = plt.subplots(figsize=(14, 10))
 ax.axis('off')
 table_data = [combined_data.reset_index().columns.values.tolist()] + combined_data.reset_index().values.tolist()
@@ -65,10 +71,29 @@ for i in range(1, len(table_data)):
             cell.set_facecolor('#ffc7ce')
             cell.set_text_props(color='#9c0006')
         else:
-            cell.set_facecolor('#f0f0f0')
+            cell_value = str(table_data[i][j])
+            if '%' in cell_value:
+                if cell_value == '<1%':
+                    cell.set_facecolor('white')
+                else:
+                    value = float(cell_value.strip('%'))
+                    if value >= 50.0:
+                        cell.set_facecolor('#ffcccc')  # Light Red for highest possibility
+                        cell.set_text_props(color='black')
+                    elif value >= 10.0:
+                        cell.set_facecolor('#ffd9b3')  # Light Orange for over 10%
+                        cell.set_text_props(color='black')
+                    elif value >= 1.0:
+                        cell.set_facecolor('#ffffcc')  # Light Yellow for other values
+                        cell.set_text_props(color='black')
+                    else:
+                        cell.set_facecolor('white')
+            else:
+                cell.set_facecolor('#f0f0f0')
 
 for i, col in enumerate(table_data[0]):
     table.auto_set_column_width(i)
+
 plt.subplots_adjust(left=0.2, right=0.8, top=0.9, bottom=0.1)
 
 st.pyplot(plt)
