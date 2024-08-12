@@ -3,5 +3,3 @@ seaborn
 numpy
 streamlit
 st-pages
-st_pages
-show_pages
